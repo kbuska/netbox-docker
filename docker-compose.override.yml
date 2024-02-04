@@ -4,21 +4,21 @@ services:
     ports:
     - 8080:8080
     volumes:
-    - /dockers/netbox:/etc/netbox/config
-    - netbox-media-files:/opt/netbox/netbox/media
-    - netbox-reports-files:/opt/netbox/netbox/reports
-    - netbox-scripts-files:/opt/netbox/netbox/scripts
+    - /dockers/netbox-docker/config:/etc/netbox/config
+    - /dockers/netbox-docker/media:/opt/netbox/netbox/media
+    - /dockers/netbox-docker/reports:/opt/netbox/netbox/reports
+    - /dockers/netbox-docker/netbox-scripts-files:/opt/netbox/netbox/scripts
     healthcheck:
       retries: 15
   netbox-worker:
     volumes:
-    - /dockers/netbox:/etc/netbox/config
-    - netbox-media-files:/opt/netbox/netbox/media
-    - netbox-reports-files:/opt/netbox/netbox/reports
-    - netbox-scripts-files:/opt/netbox/netbox/scripts
+    - /dockers/netbox-docker/config:/etc/netbox/config
+    - /dockers/netbox-docker/media:/opt/netbox/netbox/media
+    - /dockers/netbox-docker/reports:/opt/netbox/netbox/reports
+    - /dockers/netbox-docker/netbox-scripts-files:/opt/netbox/netbox/scripts
   netbox-housekeeping:
     volumes:
-    - /dockers/netbox:/etc/netbox/config
-    - netbox-media-files:/opt/netbox/netbox/media
-    - netbox-reports-files:/opt/netbox/netbox/reports
-    - netbox-scripts-files:/opt/netbox/netbox/scripts
+    - /dockers/netbox-docker/config:/etc/netbox/config
+    - /dockers/netbox-docker/media:/opt/netbox/netbox/media
+    - /dockers/netbox-docker/reports:/opt/netbox/netbox/reports
+    - /dockers/netbox-docker/netbox-scripts-files:/opt/netbox/netbox/scripts
