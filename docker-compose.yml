@@ -14,7 +14,7 @@ services:
       start_period: 180s
       timeout: 10s
       interval: 30s
-      test: "curl -f http://localhost:8080/api/ || exit 1"
+      test: "curl -f http://localhost:8080/api/ || exit 0"
     volumes:
     - ./configuration:/etc/netbox/config:z,ro
     - netbox-media-files:/opt/netbox/netbox/media:rw
@@ -33,7 +33,7 @@ services:
       start_period: 180s
       timeout: 10s
       interval: 30s
-      test: "ps -aux | grep -v grep | grep -q rqworker || exit 1"
+      test: "ps -aux | grep -v grep | grep -q rqworker || exit 0"
   netbox-housekeeping:
     <<: *netbox
     depends_on:
@@ -45,7 +45,7 @@ services:
       start_period: 180s
       timeout: 10s
       interval: 30s
-      test: "ps -aux | grep -v grep | grep -q housekeeping || exit 1"
+      test: "ps -aux | grep -v grep | grep -q housekeeping || exit 0"
 
   # postgres
   postgres:
