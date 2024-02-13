@@ -7,6 +7,8 @@ services:
     - redis
     - redis-cache
     env_file: env/netbox.env
+    ports:
+    - 8080:8080
     user: 'unit:root'
     healthcheck:
       start_period: 60s
